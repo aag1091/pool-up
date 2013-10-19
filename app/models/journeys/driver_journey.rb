@@ -1,0 +1,2 @@
+class DriverJourney < Journey
+end

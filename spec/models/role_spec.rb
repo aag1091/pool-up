@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Stop do
+describe Role do
 
   it { should validate_presence_of(:name) }
 

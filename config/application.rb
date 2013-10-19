@@ -22,5 +22,8 @@ module PoolUp
     config.generators do |g|
       g.factory_girl false
     end
+
+    config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
+
   end
 end

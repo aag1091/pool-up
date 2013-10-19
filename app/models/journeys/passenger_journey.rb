@@ -1,0 +1,2 @@
+class PassengerJourney < Journey
+end
