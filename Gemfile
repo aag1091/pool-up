@@ -62,3 +62,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'simplecov', :require => false
 end
+
+# Devise for User Authentication
+gem 'devise'
