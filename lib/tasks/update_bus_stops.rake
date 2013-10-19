@@ -15,4 +15,12 @@ namespace :seed do
     end
 
   end
+
+  desc "Add all latitude and longitude for all stops"
+  task :add_lat_and_long => :environment do
+    Stop.all.each do |stop|
+      a = Geokit::Geocoders::YahooGeocoder.geocode(stop.name)
+      
+    end
+  end
 end

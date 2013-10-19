@@ -81,3 +81,7 @@ gem 'devise'
 
 # Form Template Engine
 gem 'simple_form'
+
+# Geo Location Engine
+gem 'geokit'
+gem 'geokit-rails'
