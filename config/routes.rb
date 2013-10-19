@@ -1,4 +1,9 @@
 PoolUp::Application.routes.draw do
+  
+  resources :driver_journeys
+  resources :passenger_journeys
+  resources :journeys
+  
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   get "home/index"
   devise_for :users
