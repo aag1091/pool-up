@@ -76,3 +76,6 @@ end
 
 # Devise for User Authentication
 gem 'devise'
+
+# Form Template Engine
+gem 'simple_form'
