@@ -17,3 +17,6 @@
 
 # Custom ignores
 /config/database.yml
+/coverage/*
+*.swp
+*.swo
