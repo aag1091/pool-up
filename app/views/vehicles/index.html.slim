@@ -1,0 +1,28 @@
+h1 Listing vehicles
+
+table
+  tr
+    th Drive type
+    th Capacity
+    th Vacancy
+    th Plate No
+    th Model
+    th
+    th
+    th
+    
+  - @vehicles.each do |vehicle|
+    tr
+      td = link_to vehicle.drive_type
+      td = link_to vehicle.capacity
+      td = link_to vehicle.vacancy
+      td = link_to vehicle.plate_no
+      td = link_to vehicle.model
+    
+      td = link_to 'Show', vehicle
+      td = link_to 'Edit', edit_vehicle_path(vehicle)
+      td = link_to 'Destroy', vehicle, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Vehicle', new_vehicle_path

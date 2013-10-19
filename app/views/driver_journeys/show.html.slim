@@ -1,2 +1,6 @@
-h1 DriverJourneys#show
-p Find me in app/views/driver_journeys/show.html.slim
+p#notice = notice
+
+
+= link_to 'Edit', edit_driver_journey_path(@driver_journey)
+'|
+= link_to 'Back', driver_journeys_path

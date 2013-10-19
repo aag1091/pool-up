@@ -1,2 +1,17 @@
-h1 DriverJourneys#index
-p Find me in app/views/driver_journeys/index.html.slim
+h1 Listing driver_journeys
+
+table
+  tr
+    th
+    th
+    th
+
+  - @driver_journeys.each do |driver_journey|
+    tr
+      td = link_to 'Show', driver_journey
+      td = link_to 'Edit', edit_driver_journey_path(driver_journey)
+      td = link_to 'Destroy', driver_journey, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Driver journey', new_driver_journey_path

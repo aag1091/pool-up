@@ -1,2 +1,17 @@
-h1 PassengerJourneys#index
-p Find me in app/views/passenger_journeys/index.html.slim
+h1 Listing passenger_journeys
+
+table
+  tr
+    th
+    th
+    th
+
+  - @passenger_journeys.each do |passenger_journey|
+    tr
+      td = link_to 'Show', passenger_journey
+      td = link_to 'Edit', edit_passenger_journey_path(passenger_journey)
+      td = link_to 'Destroy', passenger_journey, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Passenger journey', new_passenger_journey_path

@@ -1,11 +1,14 @@
 require 'spec_helper'
 
-describe "passenger_journeys/show" do
+describe "vehicles/index" do
   before(:each) do
-    @passenger_journey = assign(:passenger_journey, stub_model(PassengerJourney))
+    assign(:vehicles, [
+      stub_model(Vehicle),
+      stub_model(Vehicle)
+    ])
   end
 
-  it "renders attributes in <p>" do
+  it "renders a list of vehicles" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
   end

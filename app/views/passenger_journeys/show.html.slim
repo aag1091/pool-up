@@ -1,2 +1,6 @@
-h1 PassengerJourneys#show
-p Find me in app/views/passenger_journeys/show.html.slim
+p#notice = notice
+
+
+= link_to 'Edit', edit_passenger_journey_path(@passenger_journey)
+'|
+= link_to 'Back', passenger_journeys_path

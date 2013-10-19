@@ -23,11 +23,9 @@ html[lang="en"]
         section.top-bar-section
           ul.left
             li
-              a[href="#"]
-                | Book
+              = link_to "Book", journeys_path
             li
-              a[href="#"]
-                | Check Status
+              = link_to "Vehicles", vehicles_path
             li
               a[href="#"]
                 | My Account
@@ -35,10 +33,17 @@ html[lang="en"]
               a[href="#"]
                 | Contact Us
           ul.right
-            li
-              = link_to "Login", new_user_session_path
-            li
-              = link_to "Register", new_user_registration_path
+            - if current_user
+              li
+                a[href="#"]
+                  = current_user.full_name
+              li
+                = link_to "Logout", destroy_user_session_path, method: :delete
+            - else
+              li
+                = link_to "Login", new_user_session_path
+              li
+                = link_to "Register", new_user_registration_path
     = yield
     footer.row
       .large-12.columns

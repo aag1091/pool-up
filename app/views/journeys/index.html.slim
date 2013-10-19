@@ -1,0 +1,16 @@
+.row
+  .large-5.push-4.columns
+		h2
+		  | Book A Ride
+		
+		- if current_user.vehicles.any?
+			= link_to 'As Driver', new_driver_journey_path, class: 'secondary button medium'
+		- else
+			= link_to 'As Driver', '#', class: 'secondary button medium disabled'
+			= " Click "
+			= link_to 'here', new_vehicle_path
+			= " to share your ride."
+		br
+		= link_to 'As Passenger', new_passenger_journey_path, class: 'secondary button medium'
+		
+		

@@ -1,5 +1,6 @@
 PoolUp::Application.routes.draw do
   
+  resources :vehicles
   resources :driver_journeys
   resources :passenger_journeys
   resources :journeys

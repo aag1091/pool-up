@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "passenger_journeys/show" do
+describe "vehicles/show" do
   before(:each) do
-    @passenger_journey = assign(:passenger_journey, stub_model(PassengerJourney))
+    @vehicle = assign(:vehicle, stub_model(Vehicle))
   end
 
   it "renders attributes in <p>" do

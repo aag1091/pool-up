@@ -1,0 +1,12 @@
+= simple_form_for(@vehicle) do |f|
+  = f.error_notification
+
+  .form-inputs
+  	= f.input :drive_type, collection: ['4-wheeler', '3-wheeler', '2-wheeler']
+    = f.input :capacity
+    = f.input :vacancy
+    = f.input :plate_no
+    = f.input :model
+    = f.hidden_field :user_id, value: current_user.id 
+  .form-actions
+    = f.button :submit, class: "secondary small"
