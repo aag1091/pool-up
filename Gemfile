@@ -32,17 +32,28 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# Background processing
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
+gem "slim-rails"
+
+
+# Admin Panel
+gem 'rails_admin'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# Use app server
+gem 'passenger'
+gem 'thin'
+
+# zurb-foundation gem
+gem 'compass-rails'
+gem 'zurb-foundation'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
 group :development, :test do
   gem 'factory_girl_rails'
