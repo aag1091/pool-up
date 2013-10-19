@@ -1,0 +1,50 @@
+doctype
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    title
+      = content_for?(:title) ? yield(:title) : "Untitled"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = javascript_include_tag "vendor/custom.modernizr"
+    = csrf_meta_tags
+  body
+    .fixed
+      nav.top-bar
+        ul.title-area
+          li.name
+            h1
+              = link_to "POOL' UP", root_path
+          li.toggle-topbar.menu-icon
+            a[href="#"]
+              span
+                | menu
+        section.top-bar-section
+          ul.left
+            li
+              a[href="#"]
+                | Book
+            li
+              a[href="#"]
+                | Check Status
+            li
+              a[href="#"]
+                | My Account
+            li
+              a[href="#"]
+                | Contact Us
+          ul.right
+            li
+              = link_to "Login", new_user_session_path
+            li
+              = link_to "Register", new_user_registration_path
+    = yield
+    footer.row
+      .large-12.columns
+        hr
+        .row
+          .large-6.columns
+            p
+              | © Copyright no one at all. Go to town.
+          .large-6.columns
