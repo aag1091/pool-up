@@ -9,4 +9,4 @@
             br
             = "#{journey.source.name} to #{journey.destination.name} (#{journey.start_time} to #{journey.end_time})"
           .large-3.small-12.columns
-            = link_to 'Add', '#', class: 'secondary button small'
+            = link_to 'Add', journey_bookings_path(journey_booking: { driver_journey_id: journey.id, passenger_journey_id: @passenger_journey.id}), class: 'secondary button small add_driver'

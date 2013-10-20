@@ -36,4 +36,34 @@ $(function () {
   $('#driver_journey_journey_stops_attributes_3_stop_id').tokenInput('/stops.json', { crossDomain: false, tokenLimit: 1 });
   $('#driver_journey_journey_stops_attributes_4_stop_id').tokenInput('/stops.json', { crossDomain: false, tokenLimit: 1 });
   $('#driver_journey_journey_stops_attributes_5_stop_id').tokenInput('/stops.json', { crossDomain: false, tokenLimit: 1 });
+
+  $('.add_passenger').on('click', function(e) {
+    e.preventDefault();
+    if($('.selected_journey').find('.list_section').length < parseInt($('.total_vacancy').text())) {
+      $.ajax({
+        url : $(this).attr('href'),
+        type: 'POST',
+        dataType: 'script'
+      })
+      $(this).parents('.list_section:first').remove();
+    }
+    else {
+      alert('No more Passengers can be added.')
+    }
+  })
+
+  $('.add_driver').on('click', function(e) {
+    e.preventDefault();
+    if($('.selected_journey').find('.list_section').length < 1) {
+      $.ajax({
+        url : $(this).attr('href'),
+        type: 'POST',
+        dataType: 'script'
+      })
+      $(this).parent().parents('.list_section:first').remove();
+    }
+    else {
+      alert('No more Drivers can be added.')
+    }
+  })
 });

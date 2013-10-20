@@ -25,13 +25,12 @@
                       | Passenger Details :-
                       br
                       - if journey.journey_bookings.any?
-                        = "#{journey.journey_bookings.count} are invited."
-                        = "#{journey.journey_bookings.count} have confirmed."
+                        = "#{journey.journey_bookings.count} passengers are added."
                       - else
                         = "No Passengers added yet"
                   .large-6.small-12.columns
                     h6.subheader
-                      = link_to 'Add More Passengers', driver_journey_path(journey), class: 'secondary button small'
+                      = link_to 'Add Passengers', driver_journey_path(journey), class: 'secondary button small'
 
     - if current_user.vehicles.any?
       = link_to 'As Driver', new_driver_journey_path, class: 'secondary button medium'
@@ -59,16 +58,13 @@
                     h6.subheader
                       | Drive Details :-
                       br
-                      - if journey.confirmed_journey_booking
-                        - driver_journey = journey.confirmed_journey_booking.driver_journey
-                        = "#{driver_journey.vehicle.model} - #{driver_journey.vehicle.plate_no} - #{driver_journey.vehicle.vacancy} vacancies"
-                        br
-                        = "#{driver_journey.source.name} to #{driver_journey.destination.name} (#{driver_journey.start_time} to #{driver_journey.end_time})"
+                      - if journey.journey_bookings.any?
+                        = "Driver is added"
                       - else
-                        = "No Drives confirmed yet"
+                        = "Driver not added yet"
                   .large-6.small-12.columns
                     h6.subheader
-                      = link_to 'Add More Drivers', passenger_journey_path(journey), class: 'secondary button small' 
+                      = link_to 'Add Drivers', passenger_journey_path(journey), class: 'secondary button small' 
         
     = link_to 'As Passenger', new_passenger_journey_path, class: 'secondary button medium'
     

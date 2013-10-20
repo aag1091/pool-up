@@ -5,7 +5,7 @@ class DriverJourneysController < ApplicationController
   # GET /driver_journeys.json
   def index
     @passenger_journey = PassengerJourney.find(params[:journey_id])
-    @driver_journeys = Driver.new(@passenger_journey).driver_journeys
+    @driver_journeys = Driver.new(@passenger_journey, params).driver_journeys
     respond_to do |format|
       format.html { render action: 'index' }
       format.js { render action: 'index' }
