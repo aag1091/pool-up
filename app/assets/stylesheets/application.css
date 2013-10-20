@@ -10,5 +10,7 @@
  *
  *= require_self
  *= require foundation_and_overrides
+ *= require token-input
+ *= require token-input-facebook
  *= require_tree .
  */

@@ -1,16 +1,42 @@
 .row
-  .large-5.push-4.columns
-    h2
-      | 
-
-    p#notice = notice
-
-    p= @driver_journey.source.name
-    p= @driver_journey.start_time
-    p= @driver_journey.destination.name
-    p= @driver_journey.end_time
-    p= @driver_journey.vehicle.name
-
+  .large-12.columns
+    br
+    h3
+      = "#{@driver_journey.source.name} to #{@driver_journey.destination.name} (#{@driver_journey.start_time} to #{@driver_journey.end_time})"
+    
     = link_to 'Edit', edit_driver_journey_path(@driver_journey)
     '|
-    = link_to 'Back', driver_journeys_path
+    = link_to 'Back', journeys_path
+
+  .row
+    .large-8.columns.push-2
+      br
+      h4 Filter Journeys
+      = form_tag(passenger_journeys_path, method: "get", class: :custom) do
+        .large-6.columns
+          label Start Point
+          = text_field_tag 'start_point'
+        .large-6.columns
+          label End Point
+          = text_field_tag 'end_point'
+        .large-12.columns
+          = hidden_field_tag 'page'
+          = hidden_field_tag 'per_page'
+        .large-12.columns
+          = submit_tag 'Go'
+  br
+  br
+  .row
+    .large-12.columns
+      - PassengerJourney.all.each do |journey|
+        .large-6.small-12.columns.list_section
+          .panel.radius
+            .row
+              .large-12.small-12.columns
+                .large-9.small-12.columns
+                  = "#{journey.user.full_name}"
+                  br
+                  br
+                  = "#{journey.source.name} to #{journey.destination.name} (#{journey.start_time} to #{journey.end_time})"
+                .large-3.small-12.columns
+                  = link_to 'Add', '#', class: 'secondary button small'

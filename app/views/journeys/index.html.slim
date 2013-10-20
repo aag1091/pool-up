@@ -31,7 +31,7 @@
                         = "No Passengers added yet"
                   .large-6.small-12.columns
                     h6.subheader
-                      = link_to 'Add More Passengers', '#', class: 'secondary button small'
+                      = link_to 'Add More Passengers', driver_journey_path(journey), class: 'secondary button small'
 
     - if current_user.vehicles.any?
       = link_to 'As Driver', new_driver_journey_path, class: 'secondary button medium'
@@ -68,7 +68,7 @@
                         = "No Drives confirmed yet"
                   .large-6.small-12.columns
                     h6.subheader
-                      = link_to 'Add More Drivers', '#', class: 'secondary button small' 
+                      = link_to 'Add More Drivers', passenger_journey_path(journey), class: 'secondary button small' 
         
     = link_to 'As Passenger', new_passenger_journey_path, class: 'secondary button medium'
     
