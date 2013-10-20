@@ -3,6 +3,9 @@
 
 RailsAdmin.config do |config|
 
+  config.authorize_with do
+    redirect_to main_app.root_path unless warden.user.roles.map(&:name).include?('admin')
+  end
 
   ################  Global configuration  ################
 
@@ -30,7 +33,7 @@ RailsAdmin.config do |config|
   # config.excluded_models = ['User']
 
   # Include specific models (exclude the others):
-  # config.included_models = ['User']
+  config.included_models = ['User', 'Journey', 'Vehicle', 'Stop', 'UserRole', 'Role', 'JourneyBooking', 'JourneyStop']
 
   # Label methods for model instances:
   # config.label_methods << :description # Default is [:name, :title]
