@@ -1,15 +1,30 @@
 .row
-  .large-5.push-4.columns
-    h2
-      | 
-
-    p#notice = notice
-
-    p= @passenger_journey.source.name
-    p= @passenger_journey.start_time
-    p= @passenger_journey.destination.name
-    p= @passenger_journey.end_time
-
+  .large-12.columns
+    br
+    h3
+      = "#{@passenger_journey.source.name} to #{@passenger_journey.destination.name} (#{@passenger_journey.start_time} to #{@passenger_journey.end_time})"
+    
     = link_to 'Edit', edit_passenger_journey_path(@passenger_journey)
     '|
-    = link_to 'Back', passenger_journeys_path
+    = link_to 'Back', journeys_path
+
+  .row
+    .large-12.columns
+      br
+      h4 Check for other Places by adding to filter
+      = form_tag(driver_journeys_path, method: "get", class: :custom, remote: true) do
+        .large-6.columns
+          label Start Point
+          = text_field_tag 'start_point'
+        .large-6.columns
+          label End Point
+          = text_field_tag 'end_point'
+        .large-12.columns
+          = hidden_field_tag 'journey_id', @passenger_journey.id
+        .large-12.columns
+          = submit_tag 'Go'
+  br
+  br
+  .row
+    .large-12.columns.list_for_adding_journey
+      = render 'driver_journey'

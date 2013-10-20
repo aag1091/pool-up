@@ -4,12 +4,19 @@ class DriverJourneysController < ApplicationController
   # GET /driver_journeys
   # GET /driver_journeys.json
   def index
-    @driver_journeys = DriverJourney.all
+    @passenger_journey = PassengerJourney.find(params[:journey_id])
+    @driver_journeys = Driver.new(@passenger_journey).driver_journeys
+    respond_to do |format|
+      format.html { render action: 'index' }
+      format.js { render action: 'index' }
+      format.json { render json: @driver_journeys }
+    end
   end
 
   # GET /driver_journeys/1
   # GET /driver_journeys/1.json
   def show
+    @passenger_journeys = Passenger.new(@driver_journey).passenger_journeys
   end
 
   # GET /driver_journeys/new
