@@ -1,16 +1,75 @@
 .row
-  .large-5.push-4.columns
-		h2
-		  | Book A Ride
-		
-		- if current_user.vehicles.any?
-			= link_to 'As Driver', new_driver_journey_path, class: 'secondary button medium'
-		- else
-			= link_to 'As Driver', '#', class: 'secondary button medium disabled'
-			= " Click "
-			= link_to 'here', new_vehicle_path
-			= " to share your ride."
-		br
-		= link_to 'As Passenger', new_passenger_journey_path, class: 'secondary button medium'
-		
-		
+  .large-12.columns
+    h2
+      | Your Carpool's
+    br
+    .row
+      .large-12.columns
+        h3
+          | As A Driver
+      - current_user.driver_journeys.each do |journey|
+        .large-12.columns
+          .panel.radius
+            .row
+              .large-12.small-12.columns
+                h5
+                  = "#{journey.source.name} to #{journey.destination.name} (#{journey.start_time} to #{journey.end_time})"
+                hr
+                .row
+                  .large-6.small-12.columns
+                    h6.subheader
+                      | Vehicle Details
+                      = "#{journey.vehicle.model} - #{journey.vehicle.plate_no} - #{journey.vehicle.vacancy} vacancies"
+                      br
+                      br
+                      | Passenger Details :-
+                      br
+                      - if journey.journey_bookings.any?
+                        = "#{journey.journey_bookings.count} are invited."
+                        = "#{journey.journey_bookings.count} have confirmed."
+                      - else
+                        = "No Passengers added yet"
+                  .large-6.small-12.columns
+                    h6.subheader
+                      = link_to 'Add More Passengers', '#', class: 'secondary button small'
+
+    - if current_user.vehicles.any?
+      = link_to 'As Driver', new_driver_journey_path, class: 'secondary button medium'
+    - else
+      = link_to 'As Driver', '#', class: 'secondary button medium disabled'
+      = " Click "
+      = link_to 'here', new_vehicle_path
+      = " to share your ride."
+    br
+    br
+    .row
+      .large-12.columns
+        h3
+          | As A Passenger
+      - current_user.passenger_journeys.each do |journey|
+        .large-12.columns
+          .panel.radius
+            .row
+              .large-12.small-12.columns
+                h5
+                  = "#{journey.source.name} to #{journey.destination.name} (#{journey.start_time} to #{journey.end_time})"
+                hr
+                .row
+                  .large-6.small-12.columns
+                    h6.subheader
+                      | Drive Details :-
+                      br
+                      - if journey.confirmed_journey_booking
+                        - driver_journey = journey.confirmed_journey_booking.driver_journey
+                        = "#{driver_journey.vehicle.model} - #{driver_journey.vehicle.plate_no} - #{driver_journey.vehicle.vacancy} vacancies"
+                        br
+                        = "#{driver_journey.source.name} to #{driver_journey.destination.name} (#{driver_journey.start_time} to #{driver_journey.end_time})"
+                      - else
+                        = "No Drives confirmed yet"
+                  .large-6.small-12.columns
+                    h6.subheader
+                      = link_to 'Add More Drivers', '#', class: 'secondary button small' 
+        
+    = link_to 'As Passenger', new_passenger_journey_path, class: 'secondary button medium'
+    
+    

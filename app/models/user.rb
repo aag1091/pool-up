@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   has_many :roles, through: :user_roles
 
   has_many :journeys
-  has_many :driver_journeys
-  has_many :passenger_journeys
+  has_many :driver_journeys, -> { where type: 'DriverJourney' }, class_name: 'Journey'
+  has_many :passenger_journeys, -> { where type: 'PassengerJourney' }, class_name: 'Journey'
 
   has_many :vehicles
   

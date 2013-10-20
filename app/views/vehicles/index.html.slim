@@ -13,11 +13,11 @@ table
     
   - @vehicles.each do |vehicle|
     tr
-      td = link_to vehicle.drive_type
-      td = link_to vehicle.capacity
-      td = link_to vehicle.vacancy
-      td = link_to vehicle.plate_no
-      td = link_to vehicle.model
+      td = vehicle.drive_type
+      td = vehicle.capacity
+      td = vehicle.vacancy
+      td = vehicle.plate_no
+      td = vehicle.model
     
       td = link_to 'Show', vehicle
       td = link_to 'Edit', edit_vehicle_path(vehicle)
