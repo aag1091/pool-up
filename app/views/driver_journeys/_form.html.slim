@@ -2,12 +2,22 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :source, collection: Stop.all
+    = f.input :source_id, collection: Stop.all
     = f.input :start_time
-    = f.input :destination, collection: Stop.all
+    = f.input :destination_id, collection: Stop.all
     = f.input :end_time
-    = f.input :vehicle, collection: current_user.vehicles
-    = f.hidden_field :user_id, value: current_user.id 
+    = f.input :vehicle_id, collection: current_user.vehicles
+    = f.hidden_field :user_id, value: current_user.id
+    p Start Points 
+    = f.simple_fields_for :journey_stops, @driver_journey.start_journey_stops do |p|
+      = p.input :stop_id, collection: Stop.all, label: false
+      = p.hidden_field :stop_type, value: 'start'
+      = p.hidden_field :journey_id, value: @driver_journey.id
+    p End Points
+    = f.simple_fields_for :journey_stops, @driver_journey.end_journey_stops do |p|
+      = p.input :stop_id, collection: Stop.all, label: false
+      = p.hidden_field :stop_type, value: 'end'
+      = p.hidden_field :journey_id, value: @driver_journey.id
   
   .form-actions
     = f.button :submit

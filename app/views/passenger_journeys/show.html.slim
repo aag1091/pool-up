@@ -1,6 +1,15 @@
-p#notice = notice
+.row
+  .large-5.push-4.columns
+    h2
+      | 
 
+    p#notice = notice
 
-= link_to 'Edit', edit_passenger_journey_path(@passenger_journey)
-'|
-= link_to 'Back', passenger_journeys_path
+    p= @passenger_journey.source.name
+    p= @passenger_journey.start_time
+    p= @passenger_journey.destination.name
+    p= @passenger_journey.end_time
+
+    = link_to 'Edit', edit_passenger_journey_path(@passenger_journey)
+    '|
+    = link_to 'Back', passenger_journeys_path

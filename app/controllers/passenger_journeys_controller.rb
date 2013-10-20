@@ -69,6 +69,6 @@ class PassengerJourneysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def passenger_journey_params
-      params[:passenger_journey]
+      params[:passenger_journey].permit(:source_id, :destination_id, :user_id, :start_time, :end_time)
     end
 end

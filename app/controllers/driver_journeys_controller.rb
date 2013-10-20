@@ -15,6 +15,10 @@ class DriverJourneysController < ApplicationController
   # GET /driver_journeys/new
   def new
     @driver_journey = DriverJourney.new
+    3.times do |i|
+      @driver_journey.start_journey_stops.build(stop_type: 'start')
+      @driver_journey.end_journey_stops.build(stop_type: 'end')
+    end
   end
 
   # GET /driver_journeys/1/edit
@@ -69,6 +73,17 @@ class DriverJourneysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def driver_journey_params
-      params[:driver_journey].permit(:source_id, :destination_id, :user_id, :vehicle_id, :start_time, :end_time)
+      params[:driver_journey].permit(
+        :source_id,
+        :destination_id,
+        :user_id,
+        :vehicle_id,
+        :start_time,
+        :end_time, 
+        :journey_stops_attributes => [
+          :stop_id,
+          :stop_type
+        ]
+      )
     end
 end

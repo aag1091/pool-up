@@ -1,6 +1,16 @@
-p#notice = notice
+.row
+  .large-5.push-4.columns
+    h2
+      | 
 
+    p#notice = notice
 
-= link_to 'Edit', edit_driver_journey_path(@driver_journey)
-'|
-= link_to 'Back', driver_journeys_path
+    p= @driver_journey.source.name
+    p= @driver_journey.start_time
+    p= @driver_journey.destination.name
+    p= @driver_journey.end_time
+    p= @driver_journey.vehicle.name
+
+    = link_to 'Edit', edit_driver_journey_path(@driver_journey)
+    '|
+    = link_to 'Back', driver_journeys_path
