@@ -1,11 +1,11 @@
 .row
-  .large-5.push-4.columns
+  .large-5.columns
     h2
       | Editing driver_journey
 
     == render 'form'
 
-    = link_to 'Show', @driver_journey
+    = link_to 'Show', @driver_journey, class: "button medium primary"
     '|
-    = link_to 'Back', driver_journeys_path
+    = link_to 'Back', driver_journeys_path, class: "button medium alert"
 

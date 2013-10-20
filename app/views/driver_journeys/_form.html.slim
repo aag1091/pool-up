@@ -20,4 +20,6 @@
       = p.hidden_field :journey_id, value: @driver_journey.id
   
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "secondary medium"
+    | &nbsp;
+    = link_to 'Back', driver_journeys_path, class: "button medium alert"

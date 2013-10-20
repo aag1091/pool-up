@@ -26,17 +26,13 @@ html[lang="en"]
               = link_to "Your Car Pools", journeys_path
             li
               = link_to "Vehicles", vehicles_path
-            li
-              a[href="#"]
-                | My Account
-            li
-              a[href="#"]
-                | Contact Us
+            / li
+            /   a[href="#"]
+            /     | Contact Us
           ul.right
             - if current_user
               li
-                a[href="#"]
-                  = current_user.full_name
+                = link_to current_user.full_name, current_user
               li
                 = link_to "Logout", destroy_user_session_path, method: :delete
             - else

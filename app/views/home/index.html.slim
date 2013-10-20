@@ -2,7 +2,15 @@
   .large-12.columns
     .hide-for-small
       #featured
-        img[src="http://placehold.it/1000x400&text=Slide Image" alt="slide image"]
+        .row
+          .large-4.columns.panel.left-panel
+            | Pool'up
+            div
+              | The ultimate car pooling solution  
+          .large-8.columns.panel.right-panel
+            | "We provide you car pooling services that will allow you to travel at low cost and on time. We will help you to play your part in making the world  a greener environment. Join us and Lets help our globe"
+        br
+        = image_tag "mumbai_map.jpg", width: "100%", class: "mumbai-map"
     .row
       .small-12.show-for-small
         br
@@ -27,32 +35,3 @@ br
         img[src="http://placehold.it/250x250&text=Thumbnail"]
         h6.panel
           | Description
-.row
-  .large-12.columns
-    .row
-      .large-8.columns
-        .panel.radius
-          .row
-            .large-6.small-6.columns
-              h4
-                | Header
-              hr
-              h5.subheader
-                | Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis. 
-              .show-for-small[align="center"]
-                a.small.radius.button[href="#"]
-                  | Call To Action!
-                br
-                a.small.radius.button[href="#"]
-                  | Call To Action!
-            .large-6.small-6.columns
-              p
-                | Suspendisse ultrices ornare tempor. Aenean eget ultricies libero. Phasellus non ipsum eros. Vivamus at dignissim massa. Aenean dolor libero, blandit quis interdum et, malesuada nec ligula. Nullam erat erat, eleifend sed pulvinar ac. Suspendisse ultrices ornare tempor. Aenean eget ultricies libero. 
-      .large-4.columns.hide-for-small
-        h4
-          | Get In Touch!
-        hr
-        a.large.button.secondary.expand[href="#"]
-          |  Call To Action! 
-        a.large.button.secondary.expand[href="#"]
-          |  Call To Action! 
