@@ -2,6 +2,12 @@
   = f.error_notification
 
   .form-inputs
-
+    = f.input :source, collection: Stop.all
+    = f.input :start_time
+    = f.input :destination, collection: Stop.all
+    = f.input :end_time
+    = f.input :vehicle, collection: current_user.vehicles
+    = f.hidden_field :user_id, value: current_user.id 
+  
   .form-actions
     = f.button :submit

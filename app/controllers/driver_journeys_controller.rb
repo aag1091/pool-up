@@ -69,6 +69,6 @@ class DriverJourneysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def driver_journey_params
-      params[:driver_journey]
+      params[:driver_journey].permit(:source_id, :destination_id, :user_id, :vehicle_id, :start_time, :end_time)
     end
 end
