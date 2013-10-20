@@ -85,3 +85,6 @@ gem 'simple_form'
 # Geo Location Engine
 gem 'geokit'
 gem 'geokit-rails'
+
+# Token Input
+gem 'jquery-tokeninput-rails'

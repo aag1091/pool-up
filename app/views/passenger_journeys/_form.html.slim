@@ -2,9 +2,9 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :source_id, collection: Stop.all
+    = f.input :source_id
     = f.input :start_time
-    = f.input :destination_id, collection: Stop.all
+    = f.input :destination_id
     = f.input :end_time
     = f.hidden_field :user_id, value: current_user.id 
   
